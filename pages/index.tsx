@@ -29,7 +29,7 @@ const encryptAndSave = async (input: string): Promise<[string, string]> => {
     authSig,
     chain,
   })
-  return [LitJsSdk.uint8arrayToString(encryptedSymmetricKey), await LitJsSdk.blobToBase64String(encryptedString)]
+  return [LitJsSdk.uint8arrayToString(encryptedSymmetricKey, "base16"), await LitJsSdk.blobToBase64String(encryptedString)]
 }
 
 const decrypt = async (encryptedStr:string, encryptedSymmetricKey: string): Promise<string> => {
